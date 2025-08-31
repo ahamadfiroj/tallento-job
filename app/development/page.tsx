@@ -1,9 +1,10 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 
-export default function DevelopmentPage() {
+function DevelopmentContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const action = searchParams.get('action') || 'Feature';
@@ -40,5 +41,17 @@ export default function DevelopmentPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function DevelopmentPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-white">Loading...</div>
+      </div>
+    }>
+      <DevelopmentContent />
+    </Suspense>
   );
 }

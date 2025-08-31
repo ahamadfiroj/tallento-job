@@ -4,12 +4,16 @@ import { useRef } from "react";
 import Header from "@/components/Header";
 import HeroBanner from "@/components/HeroBanner";
 
+interface HeroBannerHandle {
+  focusSearch: () => void;
+}
+
 export default function Home() {
-  const heroBannerRef = useRef(null);
+  const heroBannerRef = useRef<HeroBannerHandle>(null);
 
   const handleFindJobsClick = () => {
     if (heroBannerRef.current) {
-      (heroBannerRef.current as any).focusSearch();
+      heroBannerRef.current.focusSearch();
     }
   };
 
