@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Header from "@/components/Header";
 import HeroBanner from "@/components/HeroBanner";
 
+// Type definition for HeroBanner ref
 interface HeroBannerHandle {
   focusSearch: () => void;
 }
